@@ -74,6 +74,22 @@ class CKEditorToolBarVocabulary(object):
 
 CKEditorToolBarVocabularyFactory = CKEditorToolBarVocabulary()
 
+class CKEditorSkinVocabulary(object):
+    """Vocabulary factory for ckeditor skins
+    """
+    implements(IVocabularyFactory)
+
+    def __call__(self, context):
+        items = [SimpleTerm('kama', 'kama',
+                            _(u'Default ( Kama )')),
+                 SimpleTerm('v2', 'v2',
+                            _(u'v2')),
+                 SimpleTerm('office2003', 'office2003',
+                            _(u'Office 2003'))]
+        return SimpleVocabulary(items)
+
+CKEditorSkinVocabularyFactory = CKEditorSkinVocabulary()
+
 
 class CKEditorFileTypesVocabulary(object):
     """Vocabulary factory for ckeditor file types

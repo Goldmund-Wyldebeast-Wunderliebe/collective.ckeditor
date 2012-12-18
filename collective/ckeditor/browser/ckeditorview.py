@@ -259,7 +259,8 @@ class CKeditorView(BrowserView):
                         """CKEDITOR.plugins.addExternal('%s', '%s/', '%s');"""
                         % (id, base_url.rstrip('/'), plugin))
         params_js_string += '''config.extraPlugins = "%s";''' % ','.join(ids)
-
+        params_js_string += '''config.skin = "%s";''' % self.cke_properties.getProperty('skin')
+        
         params_js_string += """
     config.filebrowserWindowWidth = parseInt(jQuery(window).width()*70/100);
     config.filebrowserWindowHeight = parseInt(jQuery(window).height()-20);

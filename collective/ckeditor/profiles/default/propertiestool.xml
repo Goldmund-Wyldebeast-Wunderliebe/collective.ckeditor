@@ -62,6 +62,7 @@
   <property name="bodyClass" type="string"></property>
 
   <!-- skin properties -->
+  <property name="skin" type="string">kama</property>
   <property name="width" type="string"></property>
   <property name="height" type="string"></property>
 

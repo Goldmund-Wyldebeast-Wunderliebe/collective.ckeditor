@@ -97,6 +97,14 @@ class ICKEditorSkinSchema(Interface):
     """
     CKEditor Skin fieldset schema
     """
+
+    skin = Choice(
+        title=_(u"Skin"),
+        description=_(u"Choose the skin"),
+        required=True,
+        default='kama',
+        vocabulary="collective.ckeditor.vocabularies.skins")
+
     width = TextLine(
         title=_(u"Editor width"),
         description=_(u"Enter the width of the editor in px % or em"),
@@ -386,6 +394,14 @@ class CKEditorControlPanelAdapter(SchemaAdapterBase):
         set_templatesReplaceContent)
 
     # skin fieldset
+
+    def get_skin(self):
+        return self.context.skin
+
+    def set_skin(self, value):
+        self.context._updateProperty('skin', value)
+
+    skin = property(get_skin, set_skin)
 
     def get_width(self):
         return self.context.width
